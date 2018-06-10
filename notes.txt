@@ -33,7 +33,7 @@ drwxr-xr-x 1 sony 197121 0 Jun  8 20:28 ../
 drwxr-xr-x 1 sony 197121 0 Jun  8 20:31 .git/
 
 sony@sony-PC MINGW32 /e/git-material/GitFundamentals (master)
-$ ssh-keygen -t rsa -b 4096 -C "navneet.sahay@gmail.com"
+$ ssh-keygen -t rsa -b 4096 -C "xxx@gmail.com"
 Generating public/private rsa key pair.
 Enter file in which to save the key (/c/Users/sony/.ssh/id_rsa):
 Enter passphrase (empty for no passphrase):
@@ -41,23 +41,15 @@ Enter same passphrase again:
 Your identification has been saved in /c/Users/sony/.ssh/id_rsa.
 Your public key has been saved in /c/Users/sony/.ssh/id_rsa.pub.
 The key fingerprint is:
-SHA256:OwBdl1ki1gnRd444E21fKhWRNZB/kslK7wcp/WzqFng navneet.sahay@gmail.com
+SHA256:xxx navneet.sahay@gmail.com
 The key's randomart image is:
 +---[RSA 4096]----+
-|        *=o*..=*.|
-|     . o oB.+.+ o|
-|    . .    = B.= |
-|     .    + + O..|
-|      . S  + * o.|
-|       . .  + E  |
-|        o    + = |
-|         .    o =|
-|             oo+ |
+|   
 +----[SHA256]-----+
 
 sony@sony-PC MINGW32 /e/git-material/GitFundamentals (master)
 $ notepad /c/Users/sony/.ssh/id_rsa.pub
-navneet123 is the passphrase
+xxxx is the passphrase
 
 $ echo "Hello, Git" > README.txt
 $ git status
@@ -83,7 +75,7 @@ $ git commit -m "Added README.txt"
 
 $ git log
 commit 4d50b310b7a55085a29182d8b8bd823da4055995 (HEAD -> master)
-Author: navspeak <navneet.sahay@gmail.com>
+Author: navspeak <xxx@gmail.com>
 Date:   Fri Jun 8 21:27:53 2018 +0530
     Added README.txt
 
@@ -243,18 +235,11 @@ Enter same passphrase again:
 Your identification has been saved in /c/Users/sony/.ssh/id_rsa.
 Your public key has been saved in /c/Users/sony/.ssh/id_rsa.pub.
 The key fingerprint is:
-SHA256:OwBdl1ki1gnRd444E21fKhWRNZB/kslK7wcp/WzqFng navneet.sahay@gmail.com
+SHA256:OwBccczzzzxxxxx navneet.sahay@gmail.com
 The key's randomart image is:
 +---[RSA 4096]----+
 |        *=o*..=*.|
-|     . o oB.+.+ o|
-|    . .    = B.= |
-|     .    + + O..|
-|      . S  + * o.|
-|       . .  + E  |
-|        o    + = |
-|         .    o =|
-|             oo+ |
+
 +----[SHA256]-----+
 
 
