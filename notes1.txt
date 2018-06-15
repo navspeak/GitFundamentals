@@ -6,3 +6,17 @@ git add README.txt
 git add -u (to add all updates)
 git add A (to add new files)
 git log --oneline
+git diff HEAD~1..HEAD == diff HEAD~1 == diff hash1..has2
+
+Try this:
+1. Add file1 with some content
+2. Add file2 withy some content
+3. Stage file1 and file2 separately
+     git add f1 and commit => new hash
+     git add f2 and commit => new hash
+4. Remove f2 and in git status you will see deleted f2
+5. Do a "git add -u" to have the deletion staged
+6. Now add f3 a new file. Then "git add f3" to stage it
+7. Before commiting you realize f3 should have been f3.txt
+8. mv f3 f3.txt. Git status will show f3 as deleted and f3.txt as new file that is untracked
+9.Now we will do "git add -A" which will add an deletion and new file addition to staging area
