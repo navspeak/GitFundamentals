@@ -1,0 +1,8 @@
+Chapter 1
+=========
+git init
+git status
+git add README.txt
+git add -u (to add all updates)
+git add A (to add new files)
+git log --oneline
