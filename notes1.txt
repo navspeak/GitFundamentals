@@ -116,9 +116,8 @@ Now, git merge feature2_additional => causes merge conflict
 
 git push
 =====
-git push origin branch_name 
+git push
 
-Delete a remote branch
 =======================
 git push origin branch_name:branch_name_new
 git push origin :branch_name_new
@@ -140,7 +139,7 @@ If merge conflict occurs, merge changes and do
   >> git rebase --continue
 
 
-
+https://ericsink.com/vcbe/vcbe_a4_lo.pdf
 
 
 
