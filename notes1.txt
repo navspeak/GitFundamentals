@@ -1,0 +1,148 @@
+Chapter 1
+=========
+git init
+git status
+git add README.txt
+git add -u (to add all updates)
+git add A (to add new files)
+git log --oneline
+git diff HEAD~1..HEAD == diff HEAD~1 == diff hash1..has2
+
+Try this:
+1. Add file1 with some content
+2. Add file2 withy some content
+3. Stage file1 and file2 separately
+     git add f1 and commit => new hash
+     git add f2 and commit => new hash
+4. Remove f2 and in git status you will see deleted f2
+5. Do a "git add -u" to have the deletion staged
+6. Now add f3 a new file. Then "git add f3" to stage it
+7. Before commiting you realize f3 should have been f3.txt
+8. mv f3 f3.txt. Git status will show f3 as deleted and f3.txt as new file that is untracked
+9.Now we will do "git add -A" which will add an deletion and new file addition to staging area. You can then git commit.
+
+Undoing:
+========
+git checkout file1 => will reset file1 to last commit version
+git 
+
+
+alias:
+======
+git log --graph --online --all --decorate
+git config --global alias.lga "log --graph --oneline --decorate -all"
+$ cat ~/.gitconfig
+[alias]
+        lga = log --graph --oneline --decorate --all
+git config --global alias.co "checkout"
+
+branching
+=========
+Branches are simply labels on the sha1 hashes of the individual commits. Unlike tags, branches will follow the commit. Tags are just friendly name for SHA1 hashes.
+
+
+git branch feature1
+$ git lga
+* ab0cf6d (HEAD -> master, feature1) added a new file, actually
+* 0adbaa4 added a new file
+* a23a5a3 rev
+* 7c0e374 first commit
+$ git branch
+  feature1
+* master
+git branch feature1 => will make feature1 the active branch
+
+git branch "branch1" <hash> => craetes a branch off a particular hash
+
+Renaming a branch => git branch -m fix1 bug1234
+deleting a branch => git branch -d bug1234 
+   If it's unmerged it will prevent from deleting. You can use -D
+You can checkout from a new branch in one step too:
+   git checkout -b feature2
+
+Recovering Deleted Commits
+=========================
+git reflog
+ git branch bug1234 10b0b23
+  git checkout bug1234
+
+Stashing
+=========
+git stash
+git stash list
+git stash pop
+
+May cause merge conflict
+
+git stash drop (drops top of the stash)
+git stash branch feature2_additional
+
+
+Merging set up
+=====
+git config --global diff.tool bc4
+git config --global difftool.bc4.cmd "\"C:/Program Files (x86)/Beyond Compare 4/BCompare.exe\" \"\$LOCAL\" \"\$REMOTE\""
+git config --global difftool.prompt false
+
+git config --global merge.tool bc4
+git config --global mergetool.bc4.cmd "\"C:/Program Files (x86)/Beyond Compare 4/BCompare.exe\" \"\$LOCAL\" \"\$REMOTE\" \"\$BASE\" \"\$MERGED\""
+git config --global mergetool.bc4.trustExitCode true
+
+Merging 
+===
+
+Lets look at this DAG:
+
+* 029169c (feature2_additional) added additional feature2
+* e119251 (bug1234) Really fixing Feature2
+* 10b0b23 Fix applied
+| *   daa35d2 (refs/stash) WIP on feature2: e4efcbd Feature2
+| |\
+| | * 6dda511 index on feature2: e4efcbd Feature2
+| |/
+| * e4efcbd (feature2) Feature2
+| | * f568ddf (HEAD -> master, feature1) Feature 1 first change
+| |/
+| * ab0cf6d added a new file, actually
+|/
+* 0adbaa4 added a new file
+* a23a5a3 rev
+* 7c0e374 first commit
+
+git merge feature1 => This is a fast forward merge. No merge conflict
+git branch -d feature1 => we may as well delete feature1 branch
+
+Now, git merge feature2_additional => causes merge conflict
+
+git push
+=====
+git push origin branch_name 
+
+Delete a remote branch
+=======================
+git push origin branch_name:branch_name_new
+git push origin :branch_name_new
+
+
+So after merging run => git diff --cached and then commit
+
+Rebase
+=====
+Say in above example I create a branch off say ab0cf6d 
+git branch feature3 ab0cf6d 
+ git checkout feature3 and add some files and changes
+Say this branch "feature3" is based out of origin/master.
+I might decide not to merge.I might have feature2 pulled down from another developer. I might want to just take the changes in feature 3 and replay them - move that commit to make it look like it's always been off the master branch.
+Be on feature3
+>> git rebase master
+
+If merge conflict occurs, merge changes and do
+  >> git rebase --continue
+
+
+
+
+
+
+
+
