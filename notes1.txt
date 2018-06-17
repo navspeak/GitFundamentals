@@ -140,6 +140,8 @@ If merge conflict occurs, merge changes and do
 
 
 https://ericsink.com/vcbe/vcbe_a4_lo.pdf
+https://www.atlassian.com/git/tutorials/merging-vs-rebasing
+
 
 
 
